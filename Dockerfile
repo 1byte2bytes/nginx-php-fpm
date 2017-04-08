@@ -239,7 +239,7 @@ RUN mkdir /ssl
 ADD src/ /var/www/html/
 ADD errors/ /var/www/errors
 
-VOLUME /var/www/html
+VOLUME /var/www/
 VOLUME /etc/nginx/sites-enabled/
 VOLUME /ssl
 
