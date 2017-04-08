@@ -233,11 +233,15 @@ ADD scripts/letsencrypt-setup /usr/bin/letsencrypt-setup
 ADD scripts/letsencrypt-renew /usr/bin/letsencrypt-renew
 RUN chmod 755 /usr/bin/pull && chmod 755 /usr/bin/push && chmod 755 /usr/bin/letsencrypt-setup && chmod 755 /usr/bin/letsencrypt-renew && chmod 755 /start.sh
 
+RUN mkdir /ssl
+
 # copy in code
 ADD src/ /var/www/html/
 ADD errors/ /var/www/errors
 
 VOLUME /var/www/html
+VOLUME /etc/nginx/sites-enabled/
+VOLUME /ssl
 
 EXPOSE 443 80
 
